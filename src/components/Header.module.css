@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.div{
+    display: flex;
+    align-items: center;
+}
+
+.img{
+    height: 45px;
+    margin: 10px;
+}
+
+.input{
+    border:none;
+    margin-left: 10px;
+}
