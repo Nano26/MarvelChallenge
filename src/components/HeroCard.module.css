@@ -12,6 +12,10 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     animation: animate-in 1s ease-out forwards;
   }
+
+  .div{
+    align-self: flex-end;
+  }
   
   .name {
     font-size: 1rem;
