@@ -10,6 +10,7 @@
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
     animation: animate-in 1s ease-out forwards;
   }
 

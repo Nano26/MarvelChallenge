@@ -5,20 +5,22 @@ import classes from "./FavButton.module.css";
 function FavButton() {
   const [isPressed, setIsPressed] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.stopPropagation();
     if (isPressed) {
       setIsPressed(false);
-      return
+      return;
     }
     setIsPressed(true);
   };
 
   return (
-    <button
-      className={classes.favButton}
-      onClick={handleClick}
-    >
-      {isPressed ? <FaStar /> : <FaRegStar />}
+    <button className={classes.favButton} onClick={handleClick}>
+      {isPressed ? (
+        <FaStar className={classes.star} />
+      ) : (
+        <FaRegStar className={classes.star} />
+      )}
     </button>
   );
 }
