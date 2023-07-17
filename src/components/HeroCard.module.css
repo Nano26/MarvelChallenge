@@ -6,7 +6,9 @@
     height: 400px;
     width: 260px;
     margin: 10px 20px;
-    background-size: cover;
+    background-size: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
