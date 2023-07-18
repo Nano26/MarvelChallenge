@@ -12,9 +12,19 @@ function HeroCard(props) {
     }
     setModalIsVisible(true);
   }
+
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
   return (
     <>
-      {modalIsVisible ? <ComicsList onClick={hideModalHandler} /> : null}
+      {modalIsVisible ? (
+        <ComicsList
+          title={props.heroName}
+          onClick={hideModalHandler}
+          heroNumber={props.heroNumber}
+        />
+      ) : null}
       <div
         onClick={hideModalHandler}
         className={classes.card}
@@ -23,7 +33,7 @@ function HeroCard(props) {
         <div className={classes.div}>
           <FavButton />
         </div>
-        <p className={classes.name}>{props.heroName}</p>
+        <p className={classes.name}>{capitalizeFirstLetter(props.heroName)}</p>
       </div>
     </>
   );

@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className={classes.header}>
       <div className={classes.div}>
-        <img src="/Marvel_Logo.svg" alt="Marvel Logo" className={classes.img} />
+        <img src="/Pokemon_Logo.svg" alt="Pokemon Logo" className={classes.img} />
         <div className={classes.line} />
         <div className={classes.searcher}>
           <FaSistrix />
