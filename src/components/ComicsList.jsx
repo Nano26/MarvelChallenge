@@ -16,7 +16,7 @@ function ComicsList(props) {
         `https://pokeapi.co/api/v2/pokemon/${props.title}`
       );
       const jsonData = await response.json();
-      setMoves(jsonData.moves);
+      setMoves(jsonData.stats);
     } catch (error) {
       console.log("Error al obtener los datos:", error);
     }
@@ -31,11 +31,11 @@ function ComicsList(props) {
           <FaRegTimesCircle />
         </button>
         <h1>{capitalizeFirstLetter(props.title)}</h1>
-        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${props.heroNumber}.svg`} alt="" />
-        <h2>Habilidades</h2>
+        <img className={classes.img} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${props.heroNumber}.svg`} alt="Pokemon Image" />
+        <h2>Estadisticas base</h2>
         <ul className={classes.ul}>
           {moves.map((e, index) => {
-            return <li key={index}>{e.move.name}</li>;
+            return <li key={index}>{e.stat.name} :  {e.base_stat}</li>;
           })}
         </ul>
       </div>
