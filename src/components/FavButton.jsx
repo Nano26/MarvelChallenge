@@ -7,9 +7,9 @@ function FavButton(props) {
   return (
     <button className={classes.favButton} onClick={pressed.handleButtonClick}>
       {pressed.isActive ? (
-        <FaRegStar  className={classes.star} />
-      ) : (
         <FaStar style={{ color: "yellow" }} className={classes.star} />
+      ) : (
+        <FaRegStar className={classes.star} />
       )}
     </button>
   );
