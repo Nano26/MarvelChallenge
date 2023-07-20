@@ -12,7 +12,6 @@ function HeroCard(props) {
     }
     setModalIsVisible(true);
   }
-
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
@@ -31,7 +30,7 @@ function HeroCard(props) {
         style={{ backgroundImage: `url(${props.image})` }}
       >
         <div className={classes.div}>
-          <FavButton />
+          <FavButton favId={`favorite_${props.heroNumber}`} />
         </div>
         <p className={classes.name}>{capitalizeFirstLetter(props.heroName)}</p>
       </div>

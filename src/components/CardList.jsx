@@ -1,35 +1,28 @@
 import HeroCard from "./HeroCard";
 import classes from "./CardList.module.css";
-import { useEffect, useState } from "react";
+import useApiData from "../hooks/useAPIData";
 
 function CardList() {
-  const [cards, setCards] = useState([]);
+  const { data, loading, error } = useApiData(
+    "https://pokeapi.co/api/v2/pokemon/?limit=151"
+  );
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  if (loading) {
+    return <p>Cargando...</p>;
+  }
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=151");
-      const jsonData = await response.json();
-      setCards(jsonData.results);
-    } catch (error) {
-      console.log("Error al obtener los datos:", error);
-    }
-  };
-
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
   return (
     <ul className={classes.ul}>
-      {cards.map((card) => {
-        const index = cards.indexOf(card) + 1;
+      {data.results.map((card) => {
+        const index = data.results.indexOf(card) + 1;
         return (
           <HeroCard
             key={index}
             heroName={card.name}
-            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-              index
-            }.png`}
+            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`}
             heroNumber={index}
           />
         );

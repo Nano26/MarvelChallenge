@@ -13,7 +13,7 @@ function Header() {
         </div>
       </div>
       <div className={classes.favFilter}>
-        <FavButton />
+        <FavButton favId={"header"}  />
       </div>
     </header>
   );
