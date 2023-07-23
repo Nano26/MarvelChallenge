@@ -1,5 +1,5 @@
-import Header from "./components/Header";
-import CardList from "./components/CardList";
+import Header from "./components/header/Header";
+import CardList from "./components/card_list/CardList";
 
 function App() {
   return (

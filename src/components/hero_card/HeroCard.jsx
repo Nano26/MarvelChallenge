@@ -1,9 +1,9 @@
 import classes from "./HeroCard.module.css";
-import FavButton from "./FavButton";
-import ComicsList from "./ComicsList";
+import FavButton from "../favbutton/FavButton";
+import ComicsList from "../comics_list/ComicsList";
 import { useState } from "react";
 
-function HeroCard(props) {
+function HeroCard({heroName, heroId, image}) {
   const [modalIsVisible, setModalIsVisible] = useState(false);
   function hideModalHandler() {
     if (modalIsVisible) {
@@ -19,20 +19,20 @@ function HeroCard(props) {
     <>
       {modalIsVisible ? (
         <ComicsList
-          title={props.heroName}
+          title={heroName}
           onClick={hideModalHandler}
-          heroNumber={props.heroNumber}
+          heroId={heroId}
         />
       ) : null}
       <div
         onClick={hideModalHandler}
         className={classes.card}
-        style={{ backgroundImage: `url(${props.image})` }}
+        style={{ backgroundImage: `url(${image})` }}
       >
         <div className={classes.div}>
-          <FavButton favId={`favorite_${props.heroNumber}`} />
+          <FavButton favId={`favorite_${heroId}`} />
         </div>
-        <p className={classes.name}>{capitalizeFirstLetter(props.heroName)}</p>
+        <p className={classes.name}>{capitalizeFirstLetter(heroName)}</p>
       </div>
     </>
   );

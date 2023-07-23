@@ -1,5 +1,5 @@
 import classes from "./header.module.css";
-import FavButton from "./FavButton";
+import FavButton from "../favbutton/FavButton";
 import { FaSistrix } from "react-icons/fa";
 function Header() {
   return (
