@@ -1,11 +1,11 @@
 import classes from "./header.module.css";
-import FavButton from "../favbutton/FavButton";
+import FavButtonHeader from "../favButtonHeader/favButtonHeader";
 import { FaSistrix } from "react-icons/fa";
-function Header() {
+function Header({ isHeaderActive, setHeaderActive }) {
   return (
     <header className={classes.header}>
       <div className={classes.div}>
-        <img src="/Pokemon_Logo.svg" alt="Pokemon Logo" className={classes.img} />
+        <img src="/Marvel_Logo.svg" alt="Marvel Logo" className={classes.img} />
         <div className={classes.line} />
         <div className={classes.searcher}>
           <FaSistrix />
@@ -13,7 +13,10 @@ function Header() {
         </div>
       </div>
       <div className={classes.favFilter}>
-        <FavButton favId={"header"}  />
+        <FavButtonHeader
+          isHeaderActive={isHeaderActive}
+          setHeaderActive={setHeaderActive}
+        />
       </div>
     </header>
   );
