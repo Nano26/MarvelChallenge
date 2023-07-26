@@ -1,10 +1,9 @@
-import HeroCard from "../hero_card/HeroCard";
+import HeroCard from "../HeroCard/HeroCard";
 import classes from "./CardList.module.css";
-import useApiData from "../../hooks/useAPIData";
-
 import { useEffect, useState } from "react";
 
-function CardList({ isHeaderActive }) {
+
+function CardList({ isHeaderActive, objects, searchText }) {
   const [favList, setFavList] = useState(
     JSON.parse(localStorage.getItem("favList")) || []
   );
@@ -23,19 +22,10 @@ function CardList({ isHeaderActive }) {
       window.removeEventListener("storage", handleLocalStorageChange);
     };
   }, []);
-  const { data, loading, error } = useApiData(
-    "http://gateway.marvel.com/v1/public/characters?ts=1000&apikey=2d1f3ca2aae6e7d1dcf286943ea83e71&hash=30cb45c0b67c40153deb047e87c44d44"
+  const filteredObjects = objects.filter((object) =>
+    object.name.toLowerCase().includes(searchText.toLowerCase())
   );
-
-  if (loading) {
-    return <p>Cargando...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-  // Transformar los objetos de data.results para incluir la propiedad "id" desde la URL
-  const cardsWithData = data.data.results;
+  const cardsWithData = filteredObjects;
   const favData = cardsWithData;
   const randomizeData = cardsWithData.sort(() => Math.random() - 0.5);
   const randomDataSubset = randomizeData.slice(0, 8);

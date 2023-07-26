@@ -1,7 +1,16 @@
 import classes from "./header.module.css";
-import FavButtonHeader from "../favButtonHeader/favButtonHeader";
+import FavButtonHeader from "../FavButtonHeader/FavButtonHeader";
 import { FaSistrix } from "react-icons/fa";
-function Header({ isHeaderActive, setHeaderActive }) {
+import DataContext from "../../helpers/DataContext";
+import { useState } from "react";
+function Header({ isHeaderActive, setHeaderActive, onSearchChange }) {
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearchChange = (event) => {
+    const newSearchText = event.target.value;
+    setSearchText(newSearchText);
+    onSearchChange(newSearchText);
+  };
   return (
     <header className={classes.header}>
       <div className={classes.div}>
@@ -9,7 +18,13 @@ function Header({ isHeaderActive, setHeaderActive }) {
         <div className={classes.line} />
         <div className={classes.searcher}>
           <FaSistrix />
-          <input type="text" placeholder={"Buscar"} className={classes.input} />
+          <input
+            type="text"
+            value={searchText}
+            onChange={handleSearchChange}
+            placeholder={"Buscar"}
+            className={classes.input}
+          />
         </div>
       </div>
       <div className={classes.favFilter}>

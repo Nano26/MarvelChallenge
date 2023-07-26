@@ -1,7 +1,7 @@
 import { FaRegTimesCircle } from "react-icons/fa";
 import Modal from "../modal/Modal";
 import classes from "./ComicsList.module.css";
-import useApiData from "../../hooks/useAPIData";
+import useApiData from "../../hooks/useApiData";
 
 function ComicsList({ title, heroId, onClick }) {
   const capitalizeFirstLetter = (string) => {
@@ -9,7 +9,7 @@ function ComicsList({ title, heroId, onClick }) {
   };
 
   const { data, loading, error } = useApiData(
-    `https://pokeapi.co/api/v2/pokemon/${title}`
+    `http://gateway.marvel.com/v1/public/characters/${heroId}/comics?ts=1000&apikey=2d1f3ca2aae6e7d1dcf286943ea83e71&hash=30cb45c0b67c40153deb047e87c44d44`
   );
 
   if (error) {
@@ -27,17 +27,12 @@ function ComicsList({ title, heroId, onClick }) {
               <FaRegTimesCircle />
             </button>
             <h1>{capitalizeFirstLetter(title)}</h1>
-            <img
-              className={classes.img}
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${heroId}.svg`}
-              alt="Pokemon Image"
-            />
-            <h2>Estadisticas base</h2>
+            <h2>Comics</h2>
             <ul className={classes.ul}>
-              {data.stats.map((e, index) => {
+              {data.data.results.map((e, index) => {
                 return (
                   <li key={index}>
-                    {e.stat.name} : {e.base_stat}
+                    {e.title}
                   </li>
                 );
               })}

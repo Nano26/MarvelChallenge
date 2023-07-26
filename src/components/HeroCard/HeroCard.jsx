@@ -1,6 +1,6 @@
 import classes from "./HeroCard.module.css";
-import FavButton from "../favbutton/FavButton";
-import ComicsList from "../comics_list/ComicsList";
+import FavButton from "../FavButton/FavButton";
+import ComicsList from "../ComicsList/ComicsList";
 import { useState } from "react";
 
 function HeroCard({heroName, heroId, image}) {
