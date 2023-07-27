@@ -10,7 +10,7 @@ function ComicsList({ title, heroId, onClick }) {
   };
 
   const { data, loading, error } = useApiData(
-    `http://gateway.marvel.com/v1/public/characters/${heroId}/comics?ts=1000&apikey=2d1f3ca2aae6e7d1dcf286943ea83e71&hash=30cb45c0b67c40153deb047e87c44d44`
+    `https://gateway.marvel.com/v1/public/characters/${heroId}/comics?ts=1000&apikey=2d1f3ca2aae6e7d1dcf286943ea83e71&hash=30cb45c0b67c40153deb047e87c44d44`
   );
 
   if (error) {
