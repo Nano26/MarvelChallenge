@@ -6,6 +6,9 @@ export default defineConfig(({ command }) => {
   const config = {
     plugins: [react()],
     base: "/",
+    build: {
+      outDir: "public",
+    },
   };
 
   if (command !== "serve") {
