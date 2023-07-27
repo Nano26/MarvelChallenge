@@ -6,7 +6,7 @@ import useApiData from "../../hooks/useApiData";
 function ComicDetails() {
   const { comicId } = useParams();
   const { data, loading, error } = useApiData(
-    `http://gateway.marvel.com/v1/public/comics/${comicId}?ts=1000&apikey=2d1f3ca2aae6e7d1dcf286943ea83e71&hash=30cb45c0b67c40153deb047e87c44d44`
+    `https://gateway.marvel.com/v1/public/comics/${comicId}?ts=1000&apikey=2d1f3ca2aae6e7d1dcf286943ea83e71&hash=30cb45c0b67c40153deb047e87c44d44`
   );
 
   if (loading) {
