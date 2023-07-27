@@ -24,7 +24,7 @@ function App() {
     setSearchText(newSearchText);
   };
   return (
-    <Router>
+    <Router basename={import.meta.env.DEV ? "/" : "/MarvelChallenge/"}>
       {console.log("2")}
       <Header
         isHeaderActive={isHeaderActive}
