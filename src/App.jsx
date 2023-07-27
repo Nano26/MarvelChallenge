@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import CardList from "./components/CardList/CardList";
 import MarvelHeader from "./components/MarvelHeader/MarvelHeader.jsx";
 import { useState } from "react";
@@ -24,7 +24,7 @@ function App() {
     setSearchText(newSearchText);
   };
   return (
-    <Router basename={import.meta.env.DEV ? "/" : "/MarvelChallenge/"}>
+    <BrowserRouter basename={import.meta.env.DEV ? "/" : "/MarvelChallenge/"}>
       <MarvelHeader
         isHeaderActive={isHeaderActive}
         setHeaderActive={setHeaderActive}
@@ -44,7 +44,7 @@ function App() {
         ></Route>
         <Route path="/comic/:comicId" element={<ComicDetails />}></Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
