@@ -2,7 +2,7 @@ import classes from "./Header.module.css";
 import FavButtonHeader from "../FavButtonHeader/FavButtonHeader";
 import { FaSistrix } from "react-icons/fa";
 import { useState } from "react";
-function Header({ isHeaderActive, setHeaderActive, onSearchChange }) {
+function MarvelHeader({ isHeaderActive, setHeaderActive, onSearchChange }) {
   const [searchText, setSearchText] = useState("");
 
   const handleSearchChange = (event) => {
@@ -36,4 +36,4 @@ function Header({ isHeaderActive, setHeaderActive, onSearchChange }) {
   );
 }
 
-export default Header;
+export default MarvelHeader;

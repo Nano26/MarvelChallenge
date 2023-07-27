@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CardList from "./components/CardList/CardList";
-import Header from "./components/Header/Header.jsx";
+import MarvelHeader from "./components/MarvelHeader/MarvelHeader.jsx";
 import { useState } from "react";
 import useApiData from "./hooks/useApiData";
 import ComicDetails from "./components/ComicDetails/ComicDetails";
@@ -26,7 +26,7 @@ function App() {
   return (
     <Router basename={import.meta.env.DEV ? "/" : "/MarvelChallenge/"}>
       {console.log("2")}
-      <Header
+      <MarvelHeader
         isHeaderActive={isHeaderActive}
         setHeaderActive={setHeaderActive}
         onSearchChange={handleSearchChange}
