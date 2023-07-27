@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CardList from "./components/CardList/CardList";
-import Header from "components/Header/Header";
+import Header from "./components/Header/Header";
 import { useState } from "react";
 import useApiData from "./hooks/useApiData";
 import ComicDetails from "./components/ComicDetails/ComicDetails";
