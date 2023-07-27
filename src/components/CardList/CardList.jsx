@@ -3,11 +3,11 @@ import classes from "./CardList.module.css";
 import { useEffect, useState } from "react";
 
 function CardList({ isHeaderActive, objects, searchText }) {
+  console.log("1");
   const [favList, setFavList] = useState(
     JSON.parse(localStorage.getItem("favList")) || []
   );
   useEffect(() => {
-    console.log("99");
     const handleLocalStorageChange = (event) => {
       console.log("event.key", event.key);
       if (event.key === "favList") {

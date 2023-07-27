@@ -26,14 +26,17 @@ function ComicsList({ title, heroId, onClick }) {
             <button className={classes.button} onClick={onClick}>
               <FaRegTimesCircle />
             </button>
-            <h1>{capitalizeFirstLetter(title)}</h1>
-            <h2>Comics</h2>
+            <h1 className={classes.title}>{capitalizeFirstLetter(title)}</h1>
             <ul className={classes.ul}>
               {data.data.results.map((e, index) => {
                 return (
-                  <li key={index}>
-                    {e.title}
-                  </li>
+                  <div key={index} className={classes.listItem}>
+                    <img className={classes.img} src={`${e.thumbnail.path}.${e.thumbnail.extension}`} alt="Portada de comics" />
+                    <div>
+                      <h3>{e.title}</h3>
+                      <p className={classes.desc}>{e.description}</p>
+                    </div>
+                  </div>
                 );
               })}
             </ul>

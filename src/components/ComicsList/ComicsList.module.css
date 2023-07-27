@@ -1,22 +1,40 @@
 .container {
-    padding: 1rem;
-    width: 20rem;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: inherit;
-  }
+  padding: 1rem;
+  width: 500px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+}
+.listItem {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
 
-.img{
+.title {
+  font-size: 30px;
+}
+
+.img {
   height: 150px;
+  border-radius: 10px;
+}
+
+.desc {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .ul {
   display: flex;
   flex-direction: column;
-  height: 250px;
-  overflow-y: scroll
+  height: 450px;
+  overflow-y: scroll;
 }
 
 .button {
@@ -28,4 +46,3 @@
   align-self: flex-end;
   cursor: pointer;
 }
-  
