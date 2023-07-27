@@ -1,5 +1,5 @@
 import classes from "./HeroCard.module.css";
-import FavButton from "../tempfavbutton/FavButton";
+import FavButton from "../FavButton/FavButton";
 import ComicsList from "../ComicsList/ComicsList";
 import { useState } from "react";
 
