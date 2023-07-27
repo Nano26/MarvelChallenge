@@ -1,5 +1,5 @@
 import { FaRegTimesCircle } from "react-icons/fa";
-import Modal from "../Modal/Modal";
+import Modal from "../tempmodal/Modal";
 import classes from "./ComicsList.module.css";
 import useApiData from "../../hooks/useApiData";
 import { Link } from "react-router-dom";
