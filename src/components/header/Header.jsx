@@ -1,4 +1,4 @@
-import classes from "./header.module.css";
+import classes from "./Header.module.css";
 import FavButtonHeader from "../FavButtonHeader/FavButtonHeader";
 import { FaSistrix } from "react-icons/fa";
 import { useState } from "react";
