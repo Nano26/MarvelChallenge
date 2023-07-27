@@ -2,7 +2,6 @@ import HeroCard from "../HeroCard/HeroCard";
 import classes from "./CardList.module.css";
 import { useEffect, useState } from "react";
 
-
 function CardList({ isHeaderActive, objects, searchText }) {
   const [favList, setFavList] = useState(
     JSON.parse(localStorage.getItem("favList")) || []
@@ -22,10 +21,16 @@ function CardList({ isHeaderActive, objects, searchText }) {
       window.removeEventListener("storage", handleLocalStorageChange);
     };
   }, []);
-  const filteredObjects = objects.filter((object) =>
-    object.name.toLowerCase().includes(searchText.toLowerCase())
+
+  const filteredComics = objects.filter(
+    (hero) =>
+      hero.name.toLowerCase().includes(searchText.toLowerCase()) ||
+      hero.comics.items.some((comic) =>
+        comic.name.toLowerCase().includes(searchText.toLowerCase())
+      )
   );
-  const cardsWithData = filteredObjects;
+
+  const cardsWithData = filteredComics;
   const favData = cardsWithData;
   const randomizeData = cardsWithData.sort(() => Math.random() - 0.5);
   const randomDataSubset = randomizeData.slice(0, 8);

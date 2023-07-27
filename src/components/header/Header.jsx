@@ -1,7 +1,6 @@
 import classes from "./header.module.css";
 import FavButtonHeader from "../FavButtonHeader/FavButtonHeader";
 import { FaSistrix } from "react-icons/fa";
-import DataContext from "../../helpers/DataContext";
 import { useState } from "react";
 function Header({ isHeaderActive, setHeaderActive, onSearchChange }) {
   const [searchText, setSearchText] = useState("");

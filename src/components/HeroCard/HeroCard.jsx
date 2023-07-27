@@ -3,7 +3,7 @@ import FavButton from "../FavButton/FavButton";
 import ComicsList from "../ComicsList/ComicsList";
 import { useState } from "react";
 
-function HeroCard({heroName, heroId, image}) {
+function HeroCard({ heroName, heroId, image }) {
   const [modalIsVisible, setModalIsVisible] = useState(false);
   function hideModalHandler() {
     if (modalIsVisible) {
@@ -27,8 +27,12 @@ function HeroCard({heroName, heroId, image}) {
       <div
         onClick={hideModalHandler}
         className={classes.card}
-        style={{ backgroundImage: `url(${image})` }}
       >
+        <img
+          src={`${image}`}
+          alt="Imagen de Fondo"
+          className={classes.backgroundImage}
+        />
         <div className={classes.div}>
           <FavButton favId={`favorite_${heroId}`} />
         </div>
