@@ -2,6 +2,7 @@ import { FaRegTimesCircle } from "react-icons/fa";
 import Modal from "../Modal/Modal";
 import classes from "./ComicsList.module.css";
 import useApiData from "../../hooks/useApiData";
+import { Link } from "react-router-dom";
 
 function ComicsList({ title, heroId, onClick }) {
   const capitalizeFirstLetter = (string) => {
@@ -31,9 +32,13 @@ function ComicsList({ title, heroId, onClick }) {
               {data.data.results.map((e, index) => {
                 return (
                   <div key={index} className={classes.listItem}>
-                    <img className={classes.img} src={`${e.thumbnail.path}.${e.thumbnail.extension}`} alt="Portada de comics" />
+                    <img
+                      className={classes.img}
+                      src={`${e.thumbnail.path}.${e.thumbnail.extension}`}
+                      alt="Portada de comics"
+                    />
                     <div>
-                      <h3>{e.title}</h3>
+                      <Link to={`/comic/${e.id}`}>{e.title}</Link>
                       <p className={classes.desc}>{e.description}</p>
                     </div>
                   </div>

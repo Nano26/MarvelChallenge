@@ -1,0 +1,9 @@
+.comicDetails{
+    display: flex;
+}
+
+.img{
+    height: 800px;
+    width: 540px;
+    margin: 20px 10px;
+}
