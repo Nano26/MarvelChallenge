@@ -1,16 +1,24 @@
 import { FaRegStar, FaStar } from "react-icons/fa";
 import classes from "./FavButton.module.css";
-import { useState } from "react";
-import { handleChange, checkIsList } from "../../helpers";
+import { useContext } from "react";
+import { FavContext } from "../../helpers/FavContext";
 
 function FavButton({ favId }) {
-  const [isActive, setIsActive] = useState(checkIsList(favId));
+  const { favList, addToFavList, removeFromFavList } = useContext(FavContext);
+  const handleClick = (favId, event) => {
+    event.stopPropagation();
+    if (favList?.includes(favId)) {
+      removeFromFavList(favId);
+    } else {
+      addToFavList(favId);
+    }
+  };
   return (
     <button
       className={classes.favButton}
-      onClick={(event) => handleChange(isActive, setIsActive, favId, event)}
+      onClick={(event) => handleClick(favId, event)}
     >
-      {isActive ? (
+      {favList?.includes(favId) ? (
         <FaStar style={{ color: "yellow" }} className={classes.star} />
       ) : (
         <FaRegStar className={classes.star} />

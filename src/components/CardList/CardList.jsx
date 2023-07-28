@@ -1,11 +1,10 @@
+import { FavContext } from "../../helpers/FavContext";
 import HeroCard from "../HeroCard/HeroCard";
 import classes from "./CardList.module.css";
-import { useState } from "react";
+import { useContext } from "react";
 
 function CardList({ isHeaderActive, objects, searchText }) {
-  const [favList, setFavList] = useState(
-    JSON.parse(localStorage.getItem("favList")) || []
-  );
+  const { favList } = useContext(FavContext);
   const filteredComics = objects.filter(
     (hero) =>
       hero.name.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -21,7 +20,7 @@ function CardList({ isHeaderActive, objects, searchText }) {
 
   const contentFavToRender =
     favList?.length === 0 ? (
-      <p>No hay héroes favoritos</p>
+      <p>There are no favorite heroes</p>
     ) : (
       favData.map((favCard) => {
         if (favList?.includes(`favorite_${favCard.id}`)) {
@@ -39,7 +38,7 @@ function CardList({ isHeaderActive, objects, searchText }) {
     );
   const contentToRender =
     randomDataSubset?.length === 0 ? (
-      <p>Nuestro sistema no encuentra ningun heroe o comic con ese nombre</p>
+      <p>Our system does not find any hero or comic with that title</p>
     ) : (
       randomDataSubset.map((card) => (
         <HeroCard

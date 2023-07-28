@@ -9,6 +9,7 @@ import MarvelHeader from "./components/MarvelHeader/MarvelHeader.jsx";
 import { useState } from "react";
 import useApiData from "./hooks/useApiData";
 import ComicDetails from "./components/ComicDetails/ComicDetails";
+import { FavProvider } from "./helpers/FavContext";
 
 function App() {
   const [isHeaderActive, setHeaderActive] = useState(false);
@@ -29,25 +30,27 @@ function App() {
   };
   return (
     <BrowserRouter basename={import.meta.env.DEV ? "/" : "/MarvelChallenge/"}>
-      <MarvelHeader
-        isHeaderActive={isHeaderActive}
-        setHeaderActive={setHeaderActive}
-        onSearchChange={handleSearchChange}
-      />
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <CardList
-              isHeaderActive={isHeaderActive}
-              objects={data.data.results}
-              searchText={searchText}
-            />
-          }
-        ></Route>
-        <Route path="/comic/:comicId" element={<ComicDetails />}></Route>
-      </Routes>
+      <FavProvider>
+        <MarvelHeader
+          isHeaderActive={isHeaderActive}
+          setHeaderActive={setHeaderActive}
+          onSearchChange={handleSearchChange}
+        />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <CardList
+                isHeaderActive={isHeaderActive}
+                objects={data.data.results}
+                searchText={searchText}
+              />
+            }
+          ></Route>
+          <Route path="/comic/:comicId" element={<ComicDetails />}></Route>
+        </Routes>
+      </FavProvider>
     </BrowserRouter>
   );
 }

@@ -18,7 +18,6 @@ function ComicDetails() {
   }
   const dateOptions = { year: "numeric", month: "long", day: "numeric" };
   const comicInfo = data.data.results[0];
-  console.log(comicInfo);
   const writer = comicInfo.creators.items.find((elem) => elem.role === "writer")?.name || "Unknown"
   const penciler = comicInfo.creators.items.find((elem) => elem.role.includes("pencil"))?.name || "Unknown"
   const coverArtist = comicInfo.creators.items.find((elem) => elem.role.includes("(cover)"))?.name || "Unknown"
