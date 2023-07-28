@@ -2,6 +2,7 @@ import classes from "./Header.module.css";
 import FavButtonHeader from "../FavButtonHeader/FavButtonHeader";
 import { FaSistrix } from "react-icons/fa";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 function MarvelHeader({ isHeaderActive, setHeaderActive, onSearchChange }) {
   const [searchText, setSearchText] = useState("");
 
@@ -13,7 +14,13 @@ function MarvelHeader({ isHeaderActive, setHeaderActive, onSearchChange }) {
   return (
     <header className={classes.header}>
       <div className={classes.div}>
-        <img src="/Marvel_Logo.svg" alt="Marvel Logo" className={classes.img} />
+        <Link to="/">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/1200px-Marvel_Logo.svg.png"
+            alt="Marvel Logo"
+            className={classes.img}
+          />
+        </Link>
         <div className={classes.line} />
         <div className={classes.searcher}>
           <FaSistrix />
