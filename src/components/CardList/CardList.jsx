@@ -6,11 +6,10 @@ import { useContext } from "react";
 function CardList({ isHeaderActive, objects, searchText }) {
   const { favList } = useContext(FavContext);
   const filteredComics = objects.filter(
-    (hero) =>
-      hero.name.toLowerCase().includes(searchText.toLowerCase()) ||
-      hero.comics.items.some((comic) =>
-        comic.name.toLowerCase().includes(searchText.toLowerCase())
-      )
+    (hero) => hero.name.toLowerCase().includes(searchText.toLowerCase())
+    //  || hero.comics.items.some((comic) =>
+    //   comic.name.toLowerCase().includes(searchText.toLowerCase())
+    // )
   );
 
   const cardsWithData = filteredComics;

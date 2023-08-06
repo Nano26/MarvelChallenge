@@ -23,7 +23,7 @@ function useApiData(apiUrl) {
     };
 
     fetchData();
-  }, [apiUrl]);
+  }, []);
 
   return { data, loading, error };
 }

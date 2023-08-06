@@ -14,8 +14,9 @@ import { FavProvider } from "./helpers/FavContext";
 function App() {
   const [isHeaderActive, setHeaderActive] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const randomNum = Math.floor(Math.random() * 1001);
   const { data, loading, error } = useApiData(
-    "https://gateway.marvel.com/v1/public/characters?ts=1000&apikey=2d1f3ca2aae6e7d1dcf286943ea83e71&hash=30cb45c0b67c40153deb047e87c44d44&limit=100&offset=0"
+  `https://gateway.marvel.com/v1/public/characters?ts=1000&apikey=2d1f3ca2aae6e7d1dcf286943ea83e71&hash=30cb45c0b67c40153deb047e87c44d44&limit=100&offset=${randomNum}`
   );
 
   if (loading) {
